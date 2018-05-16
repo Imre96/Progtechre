@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.util.ArrayList?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="350.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Controller">
+    <left>
+      <VBox spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="newB" mnemonicParsing="false" onAction="#startGame" text="New" />
+            <Button fx:id="saveB" mnemonicParsing="false" onAction="#saveGame" text="Save" />
+            <Button fx:id="loadB" mnemonicParsing="false" onAction="#loadGame" text="Load" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
+   </left>
+   <top>
+      <HBox BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="ScoreLabel" text="Label" />
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </BorderPane.margin>
+      </HBox>
+   </top>
+   <center>
+      <AnchorPane BorderPane.alignment="CENTER">
+         <children>
+             <Button fx:id="a$a" layoutY="2.0" mnemonicParsing="false" onAction="#handle" prefHeight="40.0" prefWidth="40.0" AnchorPane.leftAnchor="5" AnchorPane.topAnchor="25" />
+             <Button fx:id="a$b" layoutY="2.0" mnemonicParsing="false" onAction="#handle" prefHeight="40.0" prefWidth="40.0" AnchorPane.leftAnchor="5" AnchorPane.topAnchor="65" />
+             <Button fx:id="a$c" layoutY="2.0" mnemonicParsing="false" onAction="#handle" prefHeight="40.0" prefWidth="40.0" AnchorPane.leftAnchor="5" AnchorPane.topAnchor="105" />
+             <Button fx:id="a$d" layoutY="2.0" mnemonicParsing="false" onAction="#handle" prefHeight="40.0" prefWidth="40.0" AnchorPane.leftAnchor="5" AnchorPane.topAnchor="145" />
+             <Button fx:id="a$e" layoutY="2.0" mnemonicParsing="false" onAction="#handle" prefHeight="40.0" prefWidth="40.0" AnchorPane.leftAnchor="5" AnchorPane.topAnchor="185" />
+             <Button fx:id="a$f" layoutY="2.0" mnemonicParsing="false" onAction="#handle" prefHeight="40.0" prefWidth="40.0" AnchorPane.leftAnchor="5" AnchorPane.topAnchor="225" />
+             <Button fx:id="b$a" layoutY="2.0" mnemonicParsing="false" onAction="#handle" prefHeight="40.0" prefWidth="40.0" AnchorPane.leftAnchor="45" AnchorPane.topAnchor="5" />
+             <Button fx:id="b$b" layoutY="2.0" mnemonicParsing="false" onAction="#handle" prefHeight="40.0" prefWidth="40.0" AnchorPane.leftAnchor="45" AnchorPane.topAnchor="45" />
+             <Button fx:id="b$c" layoutY="2.0" mnemonicParsing="false" onAction="#handle" prefHeight="40.0" prefWidth="40.0" AnchorPane.leftAnchor="45" AnchorPane.topAnchor="85" />
+             <Button fx:id="b$d" layoutY="2.0" mnemonicParsing="false" onAction="#handle" prefHeight="40.0" prefWidth="40.0" AnchorPane.leftAnchor="45" AnchorPane.topAnchor="125" />
+             <Button fx:id="b$e" layoutY="2.0" mnemonicParsing="false" onAction="#handle" prefHeight="40.0" prefWidth="40.0" AnchorPane.leftAnchor="45" AnchorPane.topAnchor="165" />
+             <Button fx:id="b$f" layoutY="2.0" mnemonicParsing="false" onAction="#handle" prefHeight="40.0" prefWidth="40.0" AnchorPane.leftAnchor="45" AnchorPane.topAnchor="205" />
+             <Button fx:id="c$a" layoutY="2.0" mnemonicParsing="false" onAction="#handle" prefHeight="40.0" prefWidth="40.0" AnchorPane.leftAnchor="85" AnchorPane.topAnchor="25" />
+             <Button fx:id="c$b" layoutY="2.0" mnemonicParsing="false" onAction="#handle" prefHeight="40.0" prefWidth="40.0" AnchorPane.leftAnchor="85" AnchorPane.topAnchor="65" />
+             <Button fx:id="c$c" layoutY="2.0" mnemonicParsing="false" onAction="#handle" prefHeight="40.0" prefWidth="40.0" AnchorPane.leftAnchor="85" AnchorPane.topAnchor="105" />
+             <Button fx:id="c$d" layoutY="2.0" mnemonicParsing="false" onAction="#handle" prefHeight="40.0" prefWidth="40.0" AnchorPane.leftAnchor="85" AnchorPane.topAnchor="145" />
+             <Button fx:id="c$e" layoutY="2.0" mnemonicParsing="false" onAction="#handle" prefHeight="40.0" prefWidth="40.0" AnchorPane.leftAnchor="85" AnchorPane.topAnchor="185" />
+             <Button fx:id="c$f" layoutY="2.0" mnemonicParsing="false" onAction="#handle" prefHeight="40.0" prefWidth="40.0" AnchorPane.leftAnchor="85" AnchorPane.topAnchor="225" />
+             <Button fx:id="d$a" layoutY="2.0" mnemonicParsing="false" onAction="#handle" prefHeight="40.0" prefWidth="40.0" AnchorPane.leftAnchor="125" AnchorPane.topAnchor="5" />
+             <Button fx:id="d$b" layoutY="2.0" mnemonicParsing="false" onAction="#handle" prefHeight="40.0" prefWidth="40.0" AnchorPane.leftAnchor="125" AnchorPane.topAnchor="45" />
+             <Button fx:id="d$c" layoutY="2.0" mnemonicParsing="false" onAction="#handle" prefHeight="40.0" prefWidth="40.0" AnchorPane.leftAnchor="125" AnchorPane.topAnchor="85" />
+             <Button fx:id="d$d" layoutY="2.0" mnemonicParsing="false" onAction="#handle" prefHeight="40.0" prefWidth="40.0" AnchorPane.leftAnchor="125" AnchorPane.topAnchor="125" />
+             <Button fx:id="d$e" layoutY="2.0" mnemonicParsing="false" onAction="#handle" prefHeight="40.0" prefWidth="40.0" AnchorPane.leftAnchor="125" AnchorPane.topAnchor="165" />
+             <Button fx:id="d$f" layoutY="2.0" mnemonicParsing="false" onAction="#handle" prefHeight="40.0" prefWidth="40.0" AnchorPane.leftAnchor="125" AnchorPane.topAnchor="205" />
+             <Button fx:id="e$a" layoutY="2.0" mnemonicParsing="false" onAction="#handle" prefHeight="40.0" prefWidth="40.0" AnchorPane.leftAnchor="165" AnchorPane.topAnchor="25" />
+             <Button fx:id="e$b" layoutY="2.0" mnemonicParsing="false" onAction="#handle" prefHeight="40.0" prefWidth="40.0" AnchorPane.leftAnchor="165" AnchorPane.topAnchor="65" />
+             <Button fx:id="e$c" layoutY="2.0" mnemonicParsing="false" onAction="#handle" prefHeight="40.0" prefWidth="40.0" AnchorPane.leftAnchor="165" AnchorPane.topAnchor="105" />
+             <Button fx:id="e$d" layoutY="2.0" mnemonicParsing="false" onAction="#handle" prefHeight="40.0" prefWidth="40.0" AnchorPane.leftAnchor="165" AnchorPane.topAnchor="145" />
+             <Button fx:id="e$e" layoutY="2.0" mnemonicParsing="false" onAction="#handle" prefHeight="40.0" prefWidth="40.0" AnchorPane.leftAnchor="165" AnchorPane.topAnchor="185" />
+             <Button fx:id="e$f" layoutY="2.0" mnemonicParsing="false" onAction="#handle" prefHeight="40.0" prefWidth="40.0" AnchorPane.leftAnchor="165" AnchorPane.topAnchor="225" />
+         </children>
+      </AnchorPane>
+   </center>
+   <bottom>
+      <StackPane BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="FinishButton" mnemonicParsing="false" onAction="#Finnish" text="Finish" />
+         </children>
+      </StackPane>
+   </bottom>
+    <fx:define>
+        <ArrayList fx:id="btnList">
+            <fx:reference source="a$a" />
+            <fx:reference source="a$b" />
+            <fx:reference source="a$c" />
+            <fx:reference source="a$d" />
+            <fx:reference source="a$e" />
+            <fx:reference source="a$f" />
+            <fx:reference source="b$a" />
+            <fx:reference source="b$b" />
+            <fx:reference source="b$c" />
+            <fx:reference source="b$d" />
+            <fx:reference source="b$e" />
+            <fx:reference source="b$f" />
+            <fx:reference source="c$a" />
+            <fx:reference source="c$b" />
+            <fx:reference source="c$c" />
+            <fx:reference source="c$d" />
+            <fx:reference source="c$e" />
+            <fx:reference source="c$f" />
+            <fx:reference source="d$a" />
+            <fx:reference source="d$b" />
+            <fx:reference source="d$c" />
+            <fx:reference source="d$d" />
+            <fx:reference source="d$e" />
+            <fx:reference source="d$f" />
+            <fx:reference source="e$a" />
+            <fx:reference source="e$b" />
+            <fx:reference source="e$c" />
+            <fx:reference source="e$d" />
+            <fx:reference source="e$e" />
+            <fx:reference source="e$f" />
+        </ArrayList>
+    </fx:define>
+
+</BorderPane>

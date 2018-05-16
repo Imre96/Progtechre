@@ -1,6 +1,7 @@
 package Model;
 
-import Game.SaveHandler;
+
+import java.util.ArrayList;
 
 import static java.lang.Math.pow;
 
@@ -18,12 +19,18 @@ public class hexGame implements hexGameInterface {
      *The Score the player gathered during the game.
      */
     private int score;
+
+    private ArrayList<int[]> line =new ArrayList<>();
+
+    public void Add(int[] e) {
+        line.add(e);
+    }
+
     /**
      *Returns the gameboard.
      *
      * @return the gameboard
      */
-    @Override
     public int[][] getMatrix() {
         return matrix;
     }
@@ -32,7 +39,6 @@ public class hexGame implements hexGameInterface {
      *
      * @return the score
      */
-    @Override
     public int getScore() {
         return score;
     }
@@ -41,7 +47,6 @@ public class hexGame implements hexGameInterface {
      *
      * @param n the gameboard
      */
-    @Override
     public void addScore(int n){
         score+=n;
     }
@@ -50,7 +55,6 @@ public class hexGame implements hexGameInterface {
      *
      * @param matrix 5x6 int array to assign as the gameboard
      */
-    @Override
     public void setMatrix(int[][] matrix) {
         this.matrix = matrix;
     }
@@ -59,7 +63,6 @@ public class hexGame implements hexGameInterface {
      *
      * @param n the value to set Score as
      */
-    @Override
     public void setScore(int n) {
         this.score = n;
     }
@@ -70,7 +73,6 @@ public class hexGame implements hexGameInterface {
      * @param i column coordinate
      * @param j row coordinate
      */
-    @Override
     public int getCell(int i, int j){
         return matrix[i][j];
     }
@@ -81,7 +83,6 @@ public class hexGame implements hexGameInterface {
      * @param j row coordinate
      * @param n value to assign
      */
-    @Override
     public void setCell(int i, int j, int n){
         matrix[i][j]=n;
     }
@@ -89,10 +90,9 @@ public class hexGame implements hexGameInterface {
     /**
      * Constuctor for creating {@code hexGame} object
      */
-    @Override
-    public void hexGame(){
-        for (int i=0 ;i<6; i++){
-            for (int j=0;j<5;j++){
+    public hexGame(){
+        for (int i=0 ;i<5; i++){
+            for (int j=0;j<6;j++){
                 matrix[i][j]=0;
             }
         }
@@ -102,20 +102,19 @@ public class hexGame implements hexGameInterface {
     /**
      * Fills up the gameboard with Randomized Values and sets Score to 0
      */
-    @Override
     public void init(){
         for (int i=0 ;i<5; i++){
             for (int j=0;j<6;j++){
                 matrix[i][j]=(int)pow(2,(int)(Math.random()*3+1));
             }
         }
-        //score=0;
+        score=0;
+        line.clear();
     }
 
     /**
      * Fills up the empty cells on the board with ramdomly generated value.
      */
-    @Override
     public void fillUp(){
         for (int i=0 ;i<5; i++){
             for (int j=0;j<6;j++){
@@ -128,7 +127,6 @@ public class hexGame implements hexGameInterface {
     /**
      * Makes the cells fall down.
      */
-    @Override
     public void gravitate(){
         for (int i=0; i<5; i++){
             boolean volteses=true;
@@ -148,7 +146,7 @@ public class hexGame implements hexGameInterface {
      * Saves the current state of the game to an XML file
      * @param name The name of the file to save in
      */
-    @Override
+
     public void save(String name) {
         SaveHandler SH = new SaveHandler();
         SH.save(this, name);
@@ -158,12 +156,40 @@ public class hexGame implements hexGameInterface {
      * Restores the state of the game from an xml file
      * @param name name of the xml file
      */
-    @Override
     public void load(String name) {
         SaveHandler SH = new SaveHandler();
         hexGame tmp = SH.load(name);
         this.matrix=tmp.getMatrix();
         this.score=tmp.getScore();
+    }
+
+    public void finish(){
+        int sum =0;
+        for (int i=0; i<line.size();i++){
+            sum +=matrix[line.get(i)[0]][line.get(i)[1]];
+            matrix[line.get(i)[0]][line.get(i)[1]]=0;
+        }
+        int[] e =line.get(line.size()-1);
+        this.setCell(e[0],e[1],get2pow(sum));
+        if (line.size()>1)
+            this.addScore(sum);
+        this.gravitate();
+        this.fillUp();
+        line.clear();
+    }
+
+    public ArrayList<int[]> getLine() {
+        return line;
+    }
+
+    private int get2pow(int n) {
+        int i=1;
+        while(Math.pow(2,i)<=n) {
+            i++;
+        }
+        if (Math.pow(2,i)==n) {
+            return (int) Math.pow(2, i);
+        }else return  (int) Math.pow(2, i-1);
     }
 
 

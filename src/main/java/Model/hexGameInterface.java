@@ -15,8 +15,6 @@ public interface hexGameInterface {
 
     void setCell(int i, int j, int n);
 
-    void hexGame();
-
     void init();
 
     void fillUp();
